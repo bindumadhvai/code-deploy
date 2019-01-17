@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: test2
+    overwrite: true
+permissions:
+  - object: test2/*
+    owner: root
+    group: root
+    mode: 777
+hooks:
+  BeforeInstall:
+    - location: before_install.sh
+  AfterInstall:
+    - location: after_install.sh
+  ApplicationStart: 
+    - location: app_start.sh
+  ValidateService: 
+    - location: validate_service.sh
